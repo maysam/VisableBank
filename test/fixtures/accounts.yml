@@ -1,0 +1,26 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+active_saving:
+  account_number: 111-222-333
+  balance_cents: 60_00
+  account_type: Saving
+  status: Active
+
+active_checking:
+  account_number: 666-222-333
+  balance_cents: 40_00
+  account_type: Checking
+  status: Active
+
+
+dormant_checking:
+  account_number: 222-333-444
+  balance_cents: 00_00
+  account_type: Checking
+  status: Dormant
+
+closed_investment:
+  account_number: 333-444-555
+  balance_cents: 00_00
+  account_type: Investment
+  status: Closed

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account: active_saving
+  user_description: loan
+  system_description: to active_checking 666-222-333
+  received_cents: 0
+  sent_cents: 40_00
+  balance_cents: 60_00
+
+two:
+  account: active_saving
+  user_description: loan
+  system_description: from active_saving 111-222-333
+  received_cents: 40_00
+  sent_cents: 0
+  balance_cents: 40_00
