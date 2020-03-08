@@ -1,24 +1,23 @@
-# README
+# Coding Challenge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Implementation of simple banking operations
 
-Things you may want to cover:
+Rails application `VisableBank` performs basic banking operations like money transfers and showing of current account balance.
 
-* Ruby version
+run `rake db:setup & db:migrate & db:seed` to have the databse ready
 
-* System dependencies
+you can run `rake` to run the tests
 
-* Configuration
+or
 
-* Database creation
+run `rails s` for the server to start up
 
-* Database initialization
+then calling `/account/111-222-333/overview` would show the json results for the account overview API which shows the balance of the account and its 10 latest transactions.
 
-* How to run the test suite
+posting to `transaction/transfer` with parameters `from`, `to`, and `amount` would transfer `amount` cents from `from` account number to `to` account number.
 
-* Services (job queues, cache servers, search engines, etc.)
+I did not implement the code in the order specified in the specs. I didn't create user and auth models and this is only according to the requirements.
 
-* Deployment instructions
+here is the link to the git repository: https://github.com/maysam/VisableBank
 
-* ...
+Thanks
