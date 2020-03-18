@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_234959) do
+ActiveRecord::Schema.define(version: 2020_03_17_112126) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "account_number"
     t.integer "balance_cents"
     t.string "account_type"
     t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "client_id"
+    t.index ["client_id"], name: "index_accounts_on_client_id"
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "client_number"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,5 +42,6 @@ ActiveRecord::Schema.define(version: 2020_03_03_234959) do
     t.index ["account_id"], name: "index_transactions_on_account_id"
   end
 
+  add_foreign_key "accounts", "clients"
   add_foreign_key "transactions", "accounts"
 end

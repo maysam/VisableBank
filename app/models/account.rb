@@ -5,5 +5,12 @@ class Account < ApplicationRecord
   validates :account_number, uniqueness: true
   validates :balance_cents, numericality: { greater_than_or_equal_to: 0 }
 
+  validates :client, with: :validate_accounts
+
+  def validate_accounts
+    errors.add(:client, "too much") unless client.accounts.count < 3
+  end
+
+  belongs_to :client, validate: true
   has_many :transactions, dependent: :destroy
 end
