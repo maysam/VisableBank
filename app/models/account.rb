@@ -11,6 +11,11 @@ class Account < ApplicationRecord
     errors.add(:client, "too much") unless client.accounts.count < 3
   end
 
+  # delegate :credit, through: :client
+  def credit
+  	client.total_credit + client.accounts.where("balance_cents < 0").pluck(:balance_cents).sum
+  end
+
   belongs_to :client, validate: true
   has_many :transactions, dependent: :destroy
 end

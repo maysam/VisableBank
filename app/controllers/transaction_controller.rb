@@ -14,7 +14,7 @@ class TransactionController < ApplicationController
     elsif amount <= 0
       render status: :precondition_failed,
              body: 'Positive amount value is required'
-    elsif source.balance_cents < amount
+    elsif source.balance_cents + source.credit < amount
       render status: :precondition_failed,
              body: "Available funds don't cover this transfer"
     else
